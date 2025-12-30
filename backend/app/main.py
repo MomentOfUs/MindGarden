@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from sqlmodel import SQLModel
-from core.config import settings
-from core.database import engine
-from api import api_router
+from app.core.config import settings
+from app.core.database import engine
+from app.api import api_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):

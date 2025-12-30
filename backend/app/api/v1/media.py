@@ -1,10 +1,10 @@
 from typing import Any, List
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from api.deps import get_current_active_user
-from core.database import get_db
-from crud.media import media_item_crud, media_collection_crud
-from schemas.media import MediaItem, MediaItemCreate, MediaItemUpdate, MediaCollection, MediaCollectionCreate, MediaCollectionUpdate
+from app.api.deps import get_current_active_user
+from app.core.database import get_db
+from app.crud.media import media_item_crud, media_collection_crud
+from app.schemas.media import MediaItem, MediaItemCreate, MediaItemUpdate, MediaCollection, MediaCollectionCreate, MediaCollectionUpdate
 
 router = APIRouter()
 

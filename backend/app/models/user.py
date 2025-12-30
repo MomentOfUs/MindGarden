@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 from sqlmodel import SQLModel, Field, Column, Relationship
 import sqlalchemy.dialects.postgresql as pg
 
@@ -42,7 +42,10 @@ class UserProfile(SQLModel, table=True):
     website: Optional[str] = Field(default=None)
     theme_preference: str = Field(default="light")
     language: str = Field(default="zh-CN")
-    notification_preferences: dict = Field(default_factory=dict)
+    notification_preferences: Dict[str, Any] = Field(
+        default_factory=dict, 
+        sa_column=Column(pg.JSON)
+    )
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
     

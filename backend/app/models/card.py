@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Optional, List
 from sqlmodel import SQLModel, Field, Column, Relationship
 import sqlalchemy.dialects.postgresql as pg
-from .user import User
+from app.models.user import User
 
 
 class KnowledgeCard(SQLModel, table=True):
@@ -32,7 +32,7 @@ class KnowledgeCard(SQLModel, table=True):
     last_accessed: Optional[datetime] = None
     
     owner: Optional[User] = Relationship(back_populates="cards")
-    references: List["CardReference"] = Relationship(back_populates="card")
+    references: List["CardReference"] = Relationship(back_populates="card", foreign_keys="CardReference.card_id")
     
     def __repr__(self) -> str:
         return f"<KnowledgeCard(id={self.id}, title='{self.title[:50]}...', owner_id={self.owner_id})>"
@@ -69,7 +69,7 @@ class CardReference(SQLModel, table=True):
     description: Optional[str] = None
     created_at: datetime = Field(default_factory=datetime.utcnow)
     
-    card: Optional[KnowledgeCard] = Relationship(back_populates="references")
+    card: Optional[KnowledgeCard] = Relationship(back_populates="references", foreign_keys="CardReference.card_id")
     
     def __repr__(self) -> str:
         return f"<CardReference(id={self.id}, card_id={self.card_id}, referenced_card_id={self.referenced_card_id})>"

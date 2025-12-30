@@ -1,10 +1,10 @@
 from typing import Any, List
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from api.deps import get_current_active_user
-from core.database import get_db
-from crud.card import knowledge_card_crud, notebook_crud
-from schemas.card import KnowledgeCard, KnowledgeCardCreate, KnowledgeCardUpdate, Notebook, NotebookCreate, NotebookUpdate
+from app.api.deps import get_current_active_user
+from app.core.database import get_db
+from app.crud.card import knowledge_card_crud, notebook_crud
+from app.schemas.card import KnowledgeCard, KnowledgeCardCreate, KnowledgeCardUpdate, Notebook, NotebookCreate, NotebookUpdate
 
 router = APIRouter()
 

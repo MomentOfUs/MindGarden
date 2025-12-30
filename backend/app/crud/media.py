@@ -2,9 +2,9 @@ from typing import List, Optional, Any
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, and_, or_, func, case
 from sqlalchemy.orm import selectinload
-from models.media import MediaItem, MediaCollection
-from schemas.media import MediaItemCreate, MediaItemUpdate, MediaCollectionCreate, MediaCollectionUpdate
-from core.utils import normalize_tags, paginate_results
+from app.models.media import MediaItem, MediaCollection
+from app.schemas.media import MediaItemCreate, MediaItemUpdate, MediaCollectionCreate, MediaCollectionUpdate
+from app.core.utils import normalize_tags, paginate_results
 
 
 class MediaItemCRUD:

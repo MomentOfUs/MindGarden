@@ -2,9 +2,9 @@ from typing import List, Optional, Any
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, and_, or_, func, update
 from sqlalchemy.orm import selectinload
-from models.card import KnowledgeCard, Notebook, CardReference
-from schemas.card import KnowledgeCardCreate, KnowledgeCardUpdate, NotebookCreate, NotebookUpdate
-from core.utils import normalize_tags, paginate_results
+from app.models.card import KnowledgeCard, Notebook, CardReference
+from app.schemas.card import KnowledgeCardCreate, KnowledgeCardUpdate, NotebookCreate, NotebookUpdate
+from app.core.utils import normalize_tags, paginate_results
 
 
 class KnowledgeCardCRUD:

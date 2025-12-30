@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from api.v1 import auth, cards, media
+from app.api.v1 import auth, cards, media
 
 api_router = APIRouter()
 

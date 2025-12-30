@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     POSTGRES_PASSWORD: str = "mindgarden123"
     POSTGRES_DB: str = "mindgarden_db"
     POSTGRES_PORT: int = 5432
-    SQLALCHEMY_DATABASE_URL: Optional[str] = None
+    SQLALCHEMY_DATABASE_URL: Optional[str] = "sqlite+aiosqlite:///./mindgarden.db"
     
     BACKEND_CORS_ORIGINS: list[str] = [
         "http://localhost:5173",

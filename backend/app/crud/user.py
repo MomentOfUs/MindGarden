@@ -2,10 +2,10 @@ from typing import List, Optional, Any
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
-from core.security import get_password_hash, verify_password
-from models.user import User, UserProfile
-from schemas.user import UserCreate, UserUpdate, UserProfileCreate, UserProfileUpdate
-from core.utils import create_response
+from app.core.security import get_password_hash, verify_password
+from app.models.user import User, UserProfile
+from app.schemas.user import UserCreate, UserUpdate, UserProfileCreate, UserProfileUpdate
+from app.core.utils import create_response
 
 
 class UserCRUD:

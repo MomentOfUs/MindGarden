@@ -1,8 +1,8 @@
 from datetime import datetime
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 from sqlmodel import SQLModel, Field, Column, Relationship
 import sqlalchemy.dialects.postgresql as pg
-from .user import User
+from app.models.user import User
 
 
 class MediaItem(SQLModel, table=True):
@@ -25,7 +25,10 @@ class MediaItem(SQLModel, table=True):
     external_id: Optional[str] = None
     external_source: Optional[str] = None
     poster_url: Optional[str] = None
-    metadata: Optional[dict] = Field(default_factory=dict)
+    meta_data: Dict[str, Any] = Field(
+        default_factory=dict, 
+        sa_column=Column(pg.JSON)
+    )
     
     tags: Optional[str] = Field(
         sa_column=Column(pg.VARCHAR(1000), nullable=True)
